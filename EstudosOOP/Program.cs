@@ -87,6 +87,7 @@ class Program
         #endregion
         #region EXERCÍCIO 4        
 
+        /*
         int n = int.Parse(Console.ReadLine());
         double media;
         double[] arrayList = new double[n];
@@ -103,6 +104,34 @@ class Program
         }
         media = soma / n;
         Console.WriteLine($"AVERAGE HEIGHT = {media.ToString("F2",CultureInfo.InvariantCulture)}");
+        */
+        #endregion
+        #region EXERCÍCIO 5
+
+        /*
+        Produto produto = new Produto();
+        double soma = 0.0;
+
+        Console.Write("Quantos produtos você deseja?:");
+        int nProdutos = int.Parse(Console.ReadLine());
+        Produto[] vetorProduto = new Produto[nProdutos];
+
+        for (int i = 0; i < nProdutos; i++)
+        {
+            string name = Console.ReadLine();
+            double price = double.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
+            vetorProduto[i] = new Produto { Nome = name, Preco = price };
+        }
+
+        for (int i = 0; i < vetorProduto.Length; i++)
+        {
+            soma += vetorProduto[i].Preco;
+        }
+
+        double avg = soma/ nProdutos;
+        Console.WriteLine($"AVERAGE PRICE = {avg.ToString("F2",CultureInfo.InvariantCulture)}");
+        */
+
         #endregion
     }
 }
