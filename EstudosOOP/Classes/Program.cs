@@ -1,4 +1,5 @@
 ﻿using EstudosOOP;
+using EstudosOOP.Static_Classes;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -6,7 +7,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        #region EXERCÍCIO 1              
+        #region EXERCÍCIO - INSTANCIANDO CLASSES              
 
         /*
         Produto produto = new();        
@@ -30,7 +31,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO 2  
+        #region EXERCÍCIO - CLASSES ESTÁTICAS  
 
         /*
         Console.WriteLine("Qual é a cotação do dólar?");
@@ -42,7 +43,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO 3
+        #region EXERCÍCIO - ENTENDENDO OS CONSTRUTORES 
 
         /*
         Console.Write("Número da conta: ");
@@ -85,7 +86,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO 4        
+        #region EXERCÍCIO - VETORES        
 
         /*
         int n = int.Parse(Console.ReadLine());
@@ -106,7 +107,7 @@ class Program
         Console.WriteLine($"AVERAGE HEIGHT = {media.ToString("F2",CultureInfo.InvariantCulture)}");
         */
         #endregion
-        #region EXERCÍCIO 5
+        #region EXERCÍCIO VETORES E CLASSES
 
         /*
         Produto produto = new Produto();
@@ -131,6 +132,59 @@ class Program
         double avg = soma/ nProdutos;
         Console.WriteLine($"AVERAGE PRICE = {avg.ToString("F2",CultureInfo.InvariantCulture)}");
         */
+
+        #endregion
+        #region EXERCÍCIO - PARAMS
+
+        /*
+         * Usando a palavra-chave params, você pode especificar um params que aceita um número variável de argumentos. 
+         * O tipo de parâmetro deve ser uma matriz unidimensional.
+         * 
+         * O que é uma matriz unidimensional ou vetor?
+         * É um conjunto de variáveis do mesmo tipo acessíveis com um único nome. 
+         * Armazenadas de forma contínua e ocupando as posições de forma fixas.
+         * Pode-se dizer que vetor é uma matriz unidimensional.
+         */
+
+        /*         
+        //int resultSoma = Calculadora.Soma(new int[] { 2, 2 }); --> Forma verbosa sem utilizar o argumento "params", mas também funcional
+        int resultSoma = Calculadora.Soma(2, 2); // --> Utilizando o argumento "params" no método Soma()
+        Console.WriteLine(resultSoma);
+        */
+
+        #endregion
+        #region EXERCÍCIO - MODIFICADORES DE PARÂMETROS REF e OUT
+
+        /*
+         * Modificador REF: O ref é para passar o argumento por referência, ou seja, em vez de passar o seu valor,
+         * passa-se um apontador que indica onde está o valor. Desta forma quando o parâmetro tiver alterado seu valor,
+         * estará alterando o valor do argumento já que eles estão na mesma posição de memória.
+         * 
+         * Resumo: 
+         *
+         * Modificador OUT: O out indica que o argumento a ser passado receberá um valor dentro do método. Ou seja, é uma referência também,
+         * mas não é passado nenhum valor para o parâmetro, é apenas uma forma de dar saída para um valor.
+         * Isto normalmente é necessário porque o return só pode ter um valor.
+         * 
+         * Resumo: O modificador out é similar ao ref (faz o parâmetro ser uma referência para a variável original),
+         * mas não exige que a variável original seja iniciada.
+        */
+
+        /*
+        int a = 10;
+        Calculadora.Triplicar(ref a);
+        Console.WriteLine(a);
+
+        int b = 10;
+        int triplo;
+        Calculadora.Triplicar(b, out triplo);
+        Console.WriteLine(triplo);
+        */
+
+        #endregion
+        #region EXERCÍCIO - BOXING E UNBOXING
+
+
 
         #endregion
     }

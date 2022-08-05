@@ -39,7 +39,7 @@ namespace EstudosOOP
         public void AdicionarProdutos(int quantity)
         {
             Quantidade = Quantidade + quantity;
-        }
+        }       
 
         public void RemoverProdutos(int quantity)
         {
