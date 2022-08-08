@@ -160,7 +160,8 @@ class Program
          * passa-se um apontador que indica onde está o valor. Desta forma quando o parâmetro tiver alterado seu valor,
          * estará alterando o valor do argumento já que eles estão na mesma posição de memória.
          * 
-         * Resumo: 
+         * Resumo: O modificador ref faz o parâmetro ser uma referência para a variável original,
+         * mas exige que a variável seja iniciada.
          *
          * Modificador OUT: O out indica que o argumento a ser passado receberá um valor dentro do método. Ou seja, é uma referência também,
          * mas não é passado nenhum valor para o parâmetro, é apenas uma forma de dar saída para um valor.
@@ -184,6 +185,57 @@ class Program
         #endregion
         #region EXERCÍCIO - BOXING E UNBOXING
 
+        /*
+        * BOXING: É o processo de conversão de um objeto tipo valor para um objeto tipo referência compatível.
+        * 
+        * UNBOXING: É o processo de conversão de um objeto tipo referência para um objeto tipo valor compatível.
+        * 
+        */
+
+        /*
+        int x = 20;
+        Object obj = x; // --> BOXING
+        int y = (int)obj; // --> UNBOXING
+        */
+        #endregion
+        #region EXERCÍCIO - LAÇO FOR EACH
+
+        /*
+        *
+        * Sintaxe opcional e simplificada para percorrer coleções.
+        * 
+        * Coleções: For, For Each, List, Arrays, Dictionary...
+        *
+        */
+
+        /*
+        Dictionary<int, string> dicionario = new Dictionary<int, string>();
+        dicionario.Add(1, "Daniel");
+
+        foreach (KeyValuePair<int,string> keyValue in dicionario)
+        {
+            Console.WriteLine($"Chave:{keyValue.Key} Valor:{keyValue.Value}");
+        }
+
+        string[] vetor = new string[] { "Daniel", "João", "Maria" };
+        foreach (string item in vetor)
+        {
+            Console.WriteLine(item);
+        }
+        */
+        #endregion
+        #region EXERCÍCIO - LISTAS
+
+        /*
+         * Lista é uma estrutura de dados:
+         * Homogênea (dados do mesmo tipo);
+         * Ordenada (elementos acessados por meio de posições);
+         * Inicia vazia, e seus elementos são alocados sob demanda;
+         * Cada elemento ocupa um nó (ou nodo) da lista.
+         * 
+         * Classe: List
+         * Namespace: System.Collections.Generic
+        */
 
 
         #endregion
