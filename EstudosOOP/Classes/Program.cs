@@ -237,6 +237,31 @@ class Program
          * Namespace: System.Collections.Generic
         */
 
+        /*
+         * Métodos da Classe List<>
+         * 
+         * Inserir elemento na lista: Add, Insert
+         * Tamanho da lista: Count
+         * Encontrar primeiro ou último elementos da lista que satisfaça um predicado: list.Find, list.FindLast
+         * Encontrar primeira ou última posição de elementos da lista que satisfaça um predicado: list.FindIndex, list.FindLastIndex
+         * Filtrar a lista com base em um predicado: list.FindAll
+         * Remover elementos da lista: Remove, RemoveAll, RemoveAt, RemoveRange
+         * 
+         * Predicado: O predicado é um tipo de função Lambda que retorna valores booleanos.
+         * Funções Lambda: As funções Lambda são chamadas de funções anônimas.
+         * Nada mais são do que funções que o usuário não precisa definir,
+         * ou seja, não vai precisar escrever a função e depois utilizá-la dentro do código.
+        */
+
+        List<string> myList = new List<string>();
+
+        myList.Add("Daniel");
+        myList.Add("Danilo");
+        myList.Insert(0, "João");
+        Console.WriteLine("Count:" + myList.Count);
+        string a = myList.Find(x => x[0] == 'D'); // --> Predicado // --> A função irá procurar a primeira ocorrência da letra D
+        Console.WriteLine(a);
+
 
         #endregion
     }
