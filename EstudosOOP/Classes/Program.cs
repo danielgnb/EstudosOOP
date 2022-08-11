@@ -253,6 +253,7 @@ class Program
          * ou seja, não vai precisar escrever a função e depois utilizá-la dentro do código.
         */
 
+        /*
         List<string> myList = new List<string>();
 
         myList.Add("Daniel");
@@ -261,7 +262,26 @@ class Program
         Console.WriteLine("Count:" + myList.Count);
         string a = myList.Find(x => x[0] == 'D'); // --> Predicado // --> A função irá procurar a primeira ocorrência da letra D
         Console.WriteLine(a);
+        */
 
+        #endregion
+        #region EXERCÍCIO - MATRIZES
+
+        /*
+         * Matriz é o nome dado arranjos bidimensionais.
+         * 
+         * Arranjo é uma estrutura de dados:
+         * Homogênea (dados do mesmo tipo);
+         * Ordenada (elementos acessados por meio de posições);
+         * Alocada de uma vez só, em um bloco contíguo de memória.
+         * 
+        */
+
+        double[,] myMatriz = new double[2,3];
+        Console.WriteLine(myMatriz.Length); // --> Quantos elementos a matriz terá no total
+        Console.WriteLine(myMatriz.Rank); // --> Quanto é a quantidade de linhas da primeira dimensão da matriz 
+        Console.WriteLine(myMatriz.GetLength(0)); // --> A primeira dimensão da matriz (0) ela possui tamanho 2
+        Console.WriteLine(myMatriz.GetLength(1)); // --> A segunda dimensão da matiz (1) ela possui tamanho 3
 
         #endregion
     }
