@@ -1,6 +1,7 @@
 ﻿using EstudosOOP;
 using EstudosOOP.Static_Classes;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 
 class Program
@@ -277,12 +278,87 @@ class Program
          * 
         */
 
+        /*
         double[,] myMatriz = new double[2,3];
         Console.WriteLine(myMatriz.Length); // --> Quantos elementos a matriz terá no total
         Console.WriteLine(myMatriz.Rank); // --> Quanto é a quantidade de linhas da primeira dimensão da matriz 
         Console.WriteLine(myMatriz.GetLength(0)); // --> A primeira dimensão da matriz (0) ela possui tamanho 2
         Console.WriteLine(myMatriz.GetLength(1)); // --> A segunda dimensão da matiz (1) ela possui tamanho 3
+        */
 
+        /*
+        int n = int.Parse(Console.ReadLine());
+        int[,] myMatriz = new int[n,n];
+
+        for (int i = 0; i < n; i++) //Percorrendo as linhas
+        {
+            string[] values = Console.ReadLine().Split(' ');
+            for (int j = 0; j < n; j++) //Percorrendo as colunas
+            {
+                myMatriz[i,j] = int.Parse(values[j]);
+            }
+        }
+
+        Console.WriteLine("Diagonal principal: ");
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine(myMatriz[i,i] + " ");
+        }
+
+        int contador = 0;
+        for (int i = 0; i < n; i++) 
+        {            
+            for (int j = 0; j < n; j++) //Percorrendo as colunas
+            {
+                if(myMatriz[i,j] < 0)
+                {
+                    contador++;
+                }
+            }
+        }
+        Console.Write($"Números negativo: {contador}");
+        */
+
+        #endregion
+        #region EXERCÍCIO - SWITCH-CASE
+
+        /*   
+         * Estrutura opcional a vários if-else encadeados, quando a condição envolve o teste do valor de uma variável.
+        */
+
+        /*
+        int x = int.Parse(Console.ReadLine());
+        string dia;
+
+        switch (x)
+        {
+            case 1:
+                dia = "Segunda";
+                break;
+            case 2:
+                dia = "Terça";
+                break;
+            case 3:
+                dia = "Quarta";
+                break;
+            case 4:
+                dia = "Quinta";
+                break;
+            case 5:
+                dia = "Sexta";
+                break;
+            case 6:
+                dia = "Sábado";
+                break;
+            case 7:
+                dia = "Domingo";
+                break;
+            default:
+                dia = "Dia não identificado";
+                break;
+        }
+        Console.WriteLine($"Dia: {dia}");
+        */
         #endregion
     }
 }
