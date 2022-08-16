@@ -360,5 +360,32 @@ class Program
         Console.WriteLine($"Dia: {dia}");
         */
         #endregion
+        #region EXERCÍCIO - EXPRESSÃO CONDICIONAL TERNÁRIA
+
+        /*
+        * Estrutura opcional ao if-else quando se deseja decidir um valor com base em uma condição
+        * 
+        * Sintaxe: (condição) ? valor_se_verdadeiro : valor_se_falso
+        * 
+        * Exemplos: 
+        * (2 > 4) ? 50 : 80 --> 80 
+        * (10 != 3) ? "Maria" : "Alex" --> "Maria"
+        */
+
+        /*
+        double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        double desconto = (preco < 20.0) ? preco * 0.1 : preco * 0.05;
+        Console.WriteLine(desconto);
+        */
+        #endregion
+        #region EXERCÍCIO - DATETIME
+
+        /*
+        DateTime date = DateTime.Now;
+        Console.WriteLine(date);
+        */
+
+        #endregion
+
     }
 }
