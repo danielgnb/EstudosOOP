@@ -381,8 +381,14 @@ class Program
         #region EXERCÍCIO - DATETIME
 
         /*
-        DateTime date = DateTime.Now;
-        Console.WriteLine(date);
+        DateTime d1 = DateTime.Now;
+        DateTime d2 = DateTime.Parse("01/04/2000");
+        DateTime d3 = DateTime.ParseExact("2000-04-01", "yyyy-MM-dd", CultureInfo.InvariantCulture);      
+        
+
+        Console.WriteLine(d1);
+        Console.WriteLine(d2);
+        Console.WriteLine(d3);
         */
 
         #endregion
