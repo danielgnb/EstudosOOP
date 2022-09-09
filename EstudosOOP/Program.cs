@@ -1,4 +1,6 @@
 ﻿using EstudosOOP;
+using EstudosOOP.Entidades;
+using EstudosOOP.Entidades.Enums;
 using EstudosOOP.Static_Classes;
 using System.Collections.Generic;
 using System.Data;
@@ -392,6 +394,41 @@ class Program
         */
 
         #endregion
+        #region EXERCÍCIO - ENUMERAÇÕES
+        /*
+         * 
+         * 
+         * 
+         * 
+         * 
+         *
+         */
 
+        //Pedido pedido = new Pedido
+        //{
+        //    Id = 1080,
+        //    Momento = DateTime.Now,
+        //    Status = PedidoStatus.PagamentoPendente //Classe de tipo enumerado
+        //};
+
+        //Console.WriteLine(pedido);
+
+        #endregion
+        #region EXERCÍCIO - HERANÇA
+
+        /*
+         * É um tipo de associação que permite que uma classe herde dados e comportamentos de outra.
+         * 
+         * Sintaxe:
+         * : (estende)
+         * base (referência para a superclasse)
+         * 
+         * Exemplo: Classe Conta é herdada para a classe ContaEmpresarial
+        */
+
+        ContaEmpresarial conta = new(122, "Daniel",122.50, 200.00);
+        Console.WriteLine(conta);
+
+        #endregion
     }
 }
