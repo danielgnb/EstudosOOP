@@ -10,7 +10,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        #region EXERCÍCIO - INSTANCIANDO CLASSES              
+        #region INSTANCIANDO CLASSES              
 
         /*
         Produto produto = new();        
@@ -34,7 +34,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO - CLASSES ESTÁTICAS  
+        #region CLASSES ESTÁTICAS  
 
         /*
         Console.WriteLine("Qual é a cotação do dólar?");
@@ -46,7 +46,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO - ENTENDENDO OS CONSTRUTORES 
+        #region ENTENDENDO OS CONSTRUTORES 
 
         /*
         Console.Write("Número da conta: ");
@@ -89,7 +89,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO - VETORES        
+        #region VETORES        
 
         /*
         int n = int.Parse(Console.ReadLine());
@@ -137,7 +137,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO - PARAMS
+        #region PARAMS
 
         /*
          * Usando a palavra-chave params, você pode especificar um params que aceita um número variável de argumentos. 
@@ -156,7 +156,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO - MODIFICADORES DE PARÂMETROS REF e OUT
+        #region MODIFICADORES DE PARÂMETROS REF e OUT
 
         /*
          * Modificador REF: O ref é para passar o argumento por referência, ou seja, em vez de passar o seu valor,
@@ -186,7 +186,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO - BOXING E UNBOXING
+        #region BOXING E UNBOXING
 
         /*
         * BOXING: É o processo de conversão de um objeto tipo valor para um objeto tipo referência compatível.
@@ -201,7 +201,7 @@ class Program
         int y = (int)obj; // --> UNBOXING
         */
         #endregion
-        #region EXERCÍCIO - LAÇO FOR EACH
+        #region LAÇO FOR EACH
 
         /*
         *
@@ -227,7 +227,7 @@ class Program
         }
         */
         #endregion
-        #region EXERCÍCIO - LISTAS
+        #region LISTAS
 
         /*
          * Lista é uma estrutura de dados:
@@ -268,7 +268,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO - MATRIZES
+        #region MATRIZES
 
         /*
          * Matriz é o nome dado arranjos bidimensionais.
@@ -322,7 +322,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO - SWITCH-CASE
+        #region SWITCH-CASE
 
         /*   
          * Estrutura opcional a vários if-else encadeados, quando a condição envolve o teste do valor de uma variável.
@@ -362,7 +362,7 @@ class Program
         Console.WriteLine($"Dia: {dia}");
         */
         #endregion
-        #region EXERCÍCIO - EXPRESSÃO CONDICIONAL TERNÁRIA
+        #region EXPRESSÃO CONDICIONAL TERNÁRIA
 
         /*
         * Estrutura opcional ao if-else quando se deseja decidir um valor com base em uma condição
@@ -380,7 +380,7 @@ class Program
         Console.WriteLine(desconto);
         */
         #endregion
-        #region EXERCÍCIO - DATETIME
+        #region DATETIME
 
         /*
         DateTime d1 = DateTime.Now;
@@ -394,7 +394,7 @@ class Program
         */
 
         #endregion
-        #region EXERCÍCIO - ENUMERAÇÕES
+        #region ENUMERAÇÕES
         /*
          * 
          * 
@@ -414,7 +414,7 @@ class Program
         //Console.WriteLine(pedido);
 
         #endregion
-        #region EXERCÍCIO - HERANÇA
+        #region HERANÇA
 
         /*
          * É um tipo de associação que permite que uma classe herde dados e comportamentos de outra.
@@ -424,10 +424,105 @@ class Program
          * base (referência para a superclasse)
          * 
          * Exemplo: Classe Conta é herdada para a classe ContaEmpresarial
+         * 
+         * -> Obs: A classe Conta é a superclasse da classe ContaEmpresarial
+         * -> (superclasse ou classe pai) = Conta / (subclasse ou classe filha) = ContaEmpresarial
         */
 
-        ContaEmpresarial conta = new(122, "Daniel",122.50, 200.00);
-        Console.WriteLine(conta);
+        //ContaEmpresarial conta = new(122, "Daniel",122.50, 200.00);
+        //Console.WriteLine(conta);
+
+        #endregion
+        #region UPCASTING e DOWNCASTING
+
+        /*
+         * -> Upcasting: É um casting da subclasse para a superclasse.
+         * Uso comum: polimorfismo.
+         * 
+         * -> Downcasting: É um casting da superclasse para a subclasse.
+         * Palavra as
+         * Palavra is
+         * Uso comum: métodos que recebem parâmetro genéricos (ex: Equals).
+         *
+         */
+
+        //Conta conta = new Conta(1001, "Daniel", 0.0);
+        //ContaEmpresarial contaEmpresarial = new ContaEmpresarial(1002, "Gouveia", 0.0, 500.0);
+
+        // UPCASTING
+        //Conta conta1 = contaEmpresarial;        
+        //Conta conta2 = new ContaEmpresarial(1003, "Neves", 0.0, 150.0);
+        //Conta conta3 = new SalvamentoConta(1004, "Bento", 0.0, 0.01);
+        // O compilador aceita esse casting porque a classe ContaEmpresarial É UM(a) subclasse da superclasse Conta.
+
+        // DOWNCASTING
+        //ContaEmpresarial contaEmpresarial1 = conta2; //Erro
+        //ContaEmpresarial contaEmpresarial2 = (ContaEmpresarial)conta2; //Correto, utilizando o casting
+
+        #endregion
+        #region SOBREPOSIÇÃO OU SOBRESCRITA (VIRTUAL, OVERRIDE, BASE)
+
+        /*
+         * É a implementação de um método de uma superclasse na subclasse.
+         * 
+         * Para que um método comum (não abstrato) possa ser sobreposto, deve ser incluído nele o prefixo "virtual".
+         * Ao sobrescrever um método, devemos incluir nele o prefixo override.
+         * 
+         */
+
+        //Conta minhaConta = new Conta(156, "Daniel", 500.00);
+        //Conta minhaContaS = new SalvamentoConta(157, "Daniel Ltda", 500.0, 150.0);
+
+        //minhaConta.Saque(10.0);
+        //minhaContaS.Saque(10.0); // O método Saque foi sobrescrito na subclasse SalvamentoConta
+
+        //Console.WriteLine(minhaConta.Saldo); //485
+        //Console.WriteLine(minhaContaS.Saldo); //490
+
+        #endregion
+        #region CLASSES E MÉTODOS SELADOS
+
+        /*
+         * Palavra chave: sealed
+         * 
+         * -> na Classe: Evita que a classe seja herdada
+         * Obs: ainda é possível extender a funcionalidade de uma classe selada usando "extension methods".
+         * 
+         * -> no Método: Evita que um método sobreposto possa ser sobreposto novamente
+         * Obs: só pode ser aplicado a métodos sobrepostos.
+         * 
+         * -> Qual necessidade de selar classes ou métodos?
+         * - Segurança: Dependendo das regras de negócio, às vezes é desejável garantir que uma classe não seja herdada
+         * ou que um método não seja sobreposto. Geralmente convém selar métodos sobrepostos, pois sobreposições múltiplas
+         * podem ser uma porta de entrada para inconsistências.
+         * 
+         * - Performance: Atributos e tipo de uma classe selada são analisados de forma mais rápida em tempo de execução.
+         * Exemplo clássico: string
+        */
+
+        //Exemplo com Classe:
+        //namespace EstudosOOP.Entidades
+        //{
+        //internal sealed class SalvamentoConta : Conta
+        //{
+
+        #endregion
+        #region POLIMORFISMO
+
+        /*
+         * -> Em POO, polimorfismo é um recurso que permite que variáveis de um mesmo tipo mais genérico possam apontar
+         * para objetos de tipos específicos diferentes, tendo assim comportamentos diferentes conforme cada tipo específico.
+         * 
+         * -> Importante:
+         * - A associação do tipo específico com o tipo genérico é feita em tempo de execução (upcasting).
+         * 
+         * - O compilador não sabe para qual tipo específico a chamada do método Saque está sendo feita
+         * (ele só sabe que são duas variáveis tipo Conta):
+         * 
+         * Conta conta2 = new ContaEmpresarial(1003, "Neves", 0.0, 150.0);
+         * Conta conta3 = new SalvamentoConta(1004, "Bento", 0.0, 0.01);
+         * 
+         */
 
         #endregion
     }

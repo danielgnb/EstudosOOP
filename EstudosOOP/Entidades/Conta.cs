@@ -23,9 +23,9 @@ namespace EstudosOOP.Entidades
             Saldo = saldo;
         }
 
-        public void Saque(double quantia)
+        public virtual void Saque(double quantia) // Colocando esse virtual, podemos sobrescrever esse método em outras classes filho.
         {
-            Saldo -= quantia;
+            Saldo -= quantia + 5.00;
         }
 
         public void Deposito(double quantia)

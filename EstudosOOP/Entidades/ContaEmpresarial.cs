@@ -38,5 +38,6 @@ namespace EstudosOOP.Entidades
             sb.Append($"Limite de empréstimo: {LimiteEmprestimo.ToString("F2",CultureInfo.InvariantCulture)}");
             return sb.ToString();
         }
+        
     }
 }
