@@ -660,28 +660,28 @@ class Program
          * Exemplo clássico: fechar um arquivo ou conexão de banco de dados ao final do processamento.
          */
 
-        FileStream? fs = null; //O FileStream é uma funcionalidade do C# que abre arquivos e só pode ser fechado manualmente.
-        try
-        {
-            fs = new FileStream(@"C:\Users\danie\OneDrive\Área de Trabalho\
-                DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum.txt",
-                FileMode.Open);
-            StreamReader sr = new StreamReader(fs);
-            string? linha = sr.ReadLine();
-            Console.WriteLine(linha);
-        }
-        catch (FileNotFoundException e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-        finally
-        {
-            if (fs != null) { fs.Close(); } // Fechando o arquivo independente se ocorreu erro ou não.
-        }
+        //FileStream? fs = null; //O FileStream é uma funcionalidade do C# que abre arquivos e só pode ser fechado manualmente.
+        //try
+        //{
+        //    fs = new FileStream(@"C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\
+        //        PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum.txt",
+        //        FileMode.Open);
+        //    StreamReader sr = new StreamReader(fs);
+        //    string? linha = sr.ReadLine();
+        //    Console.WriteLine(linha);
+        //}
+        //catch (FileNotFoundException e)
+        //{
+        //    Console.WriteLine(e.Message);
+        //}
+        //catch (Exception)
+        //{
+        //    throw;
+        //}
+        //finally
+        //{
+        //    if (fs != null) { fs.Close(); } // Fechando o arquivo independente se ocorreu erro ou não.
+        //}
 
         #endregion
 
