@@ -37,6 +37,10 @@ class Program
         #region CLASSES ESTÁTICAS  
 
         /*
+         * Classes estáticas são classes que não precisam ser instanciadas para serem usadas.
+         * 
+         * Exemplo: classe Math().
+         * 
         Console.WriteLine("Qual é a cotação do dólar?");
         double cotacao = Convert.ToDouble(Console.ReadLine(), CultureInfo.InvariantCulture);
         Console.Write("Quantos dólares você vai comprar? ");
@@ -523,6 +527,163 @@ class Program
          * Conta conta3 = new SalvamentoConta(1004, "Bento", 0.0, 0.01);
          * 
          */
+
+        #endregion
+        #region CLASSES ABSTRATAS
+
+        /*
+         * São classes que não podem ser instanciadas
+         * 
+         * É uma forma de garantir herença total: somente subclasses não abstratas podem ser instanciadas, mas nunca a superclasse abstrata.
+         * 
+         * -> Observação: Por que utilizar classes abstratas?
+         * - Reuso
+         * - Polimorfismo: A superclasse classe genérica nos permite tratar de forma fácil e uniforme todos os tipos de conta,
+         * inclusive com polimorfismo se for o caso.
+        */
+
+        //Conta minhaConta = new Conta(156, "Daniel", 500.00); // Erro, superclasse é abstrata
+        //Conta minhaContaS = new SalvamentoConta(157, "Daniel Ltda", 500.0, 150.0);
+
+        //minhaConta.Saque(10.0);
+        //minhaContaS.Saque(10.0); 
+
+        //Console.WriteLine(minhaConta.Saldo); 
+        //Console.WriteLine(minhaContaS.Saldo);
+
+        #endregion
+        #region MÉTODOS ABSTRATOS
+
+        /*
+         * São métodos que não possuem implementação.
+         * 
+         * Métodos precisam ser abstratos quando a classe é genérica demais para contar sua implementação.
+         * 
+         * Se uma classe possuir pelo menos um método abstrato, então esta classe também é abstrata.
+         * 
+         * -> Observação: No exemplo abaixo a superclasse Figura é abstrata e seu método Area() também,
+         * suas subclasses (RetanguloFig e Circulo) devem sobreescrever o seu método Area() para poder utilizá-los.
+        */
+
+        //List<Figura> listFigura = new();
+
+        //Console.Write("Entre com a quantidade de figuras: ");
+        //int n = int.Parse(Console.ReadLine());
+
+        //for (int i = 1; i <= n; i++)
+        //{
+        //    Console.WriteLine($"#{i} Figura:");
+        //    Console.Write("Retângulo ou Círculo (r/c)? ");
+        //    char resposta = Char.Parse(Console.ReadLine());
+        //    Console.Write("Cor (Preto/Azul/Vermelho): ");
+        //    Cor cor = Enum.Parse<Cor>(Console.ReadLine());
+        //    if (resposta == 'r') {
+        //        Console.Write("Largura: ");
+        //        double largura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        //        Console.Write("Altura: ");
+        //        double altura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        //        listFigura.Add(new RetanguloFig(largura, altura, cor));
+        //    }
+        //    else
+        //    {
+        //        Console.Write("Raio: ");
+        //        double raio = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        //        listFigura.Add(new Circulo(raio, cor));
+        //    }            
+        //}
+
+        //Console.WriteLine();
+        //Console.WriteLine("Área da Figura: ");
+        //foreach (Figura figura in listFigura)
+        //{            
+        //    Console.WriteLine(figura.Area().ToString("F2", CultureInfo.InvariantCulture));
+        //}
+        #endregion
+        #region EXCEÇÕES
+
+        /*
+         * Uma exceção é qualquer condição de erro ou comportamento inesperado encontrado por um programa em execução.
+         * 
+         * No .NET, uma exceção é um objeto herdado da classe System.Exception.
+         * Quando lançada, uma exceção é propagada na pilha de chamadas de métodos em execução, até que seja capturada (tratada) ou
+         * o programa seja encerrado. 
+         * 
+         * -> Por que existem exceções?
+         * O modelo de tratamento de exceções permite que erros sejam tratados de forma consistente e flexível, usando boas práticas.
+         * 
+         * -> Vantagens
+         * - Delega a lógica do erro para a classe/método responsável por conhecer as regras que podem ocasionar o erro.
+         * - Trata de forma organizada (inclusive hierárquica) exceções de tipos diferentes.
+         * - A exceção pode carregar dados quaisquer.
+         * 
+         * C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Imagens\excecoes.jpg
+         */
+
+        #region TRY-CATCH
+
+        /*
+         * -> Bloco try
+         * - Contém o código que representa a execução normal do trecho de código que pode acarretar em uma exceção.
+         * 
+         * -> Bloco catch
+         * - Contém o código a ser executado caso uma exceção ocorra.
+         * - Deve ser especificado o tipo da exceção a ser tratada (upcasting é permitido).
+         * Obs: É possível utilizar quantos blocos catch necessários.
+        */
+
+        //try
+        //{
+        //    int n1 = int.Parse(Console.ReadLine()); // 10
+        //    int n2 = int.Parse(Console.ReadLine()); // 0
+        //    int resultado = n1 / n2; // Erro
+        //}
+        //catch (DivideByZeroException) // Exceção expecífica, tratamento é feito da forma que preferir.
+        //{
+        //    Console.WriteLine("A divisão por 0 não é permitida."); // Tratamento
+        //}
+        //catch (FormatException e) // Exceção expecífica, tratamento é feito da forma que preferir.
+        //{
+        //    Console.WriteLine("Formato de entrada incorreto! Utilize números inteiros para realizar a divisão"); // Tratamento
+        //}
+        //catch(Exception e) // Classe Genérica. Com ela qualquer exceção será tratada.
+        //{
+        //    Console.WriteLine($"Erro! {e.Message}");
+        //}
+
+        #endregion
+
+        #region FINALLY
+
+        /*
+         * É um bloco que contém código a ser executado independentemente de ter ocorrido ou não uma execeção.
+         * 
+         * Exemplo clássico: fechar um arquivo ou conexão de banco de dados ao final do processamento.
+         */
+
+        FileStream? fs = null; //O FileStream é uma funcionalidade do C# que abre arquivos e só pode ser fechado manualmente.
+        try
+        {
+            fs = new FileStream(@"C:\Users\danie\OneDrive\Área de Trabalho\
+                DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum.txt",
+                FileMode.Open);
+            StreamReader sr = new StreamReader(fs);
+            string? linha = sr.ReadLine();
+            Console.WriteLine(linha);
+        }
+        catch (FileNotFoundException e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        finally
+        {
+            if (fs != null) { fs.Close(); } // Fechando o arquivo independente se ocorreu erro ou não.
+        }
+
+        #endregion
 
         #endregion
     }

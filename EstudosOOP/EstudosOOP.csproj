@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="Apoio\Imagens\" />
+    <Folder Include="Apoio\Anotacoes\" />
   </ItemGroup>
 
 </Project>

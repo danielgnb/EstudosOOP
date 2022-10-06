@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EstudosOOP.Entidades
 {
-    internal class Conta
+    internal abstract class Conta
     {
         public int Numero { get; set; }
         public string Titular { get; set; } = string.Empty;

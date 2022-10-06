@@ -9,9 +9,9 @@ namespace EstudosOOP
 {
     internal class Produto
     {
-        public string Nome { get; set; }
-        public double Preco { get; set; }
-        public int Quantidade { get; set; }
+        private string Nome { get; set; }
+        private double Preco { get; set; }
+        private int Quantidade { get; set; }
 
         public Produto(string Nome, double Preco, int Quantidade)
         {
