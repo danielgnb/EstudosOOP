@@ -1,6 +1,7 @@
 ﻿using EstudosOOP;
 using EstudosOOP.Entidades;
 using EstudosOOP.Entidades.Enums;
+using EstudosOOP.Entidades.Exceções;
 using EstudosOOP.Static_Classes;
 using System.Collections.Generic;
 using System.Data;
@@ -682,6 +683,59 @@ class Program
         //{
         //    if (fs != null) { fs.Close(); } // Fechando o arquivo independente se ocorreu erro ou não.
         //}
+
+        #endregion
+
+        #region EXCEÇÕES PERSONALIZADAS
+
+        /*
+         * Fazer um programa para ler os dados de uma reserva de hotel (núemro do quarto, data de entrada e saída) e mostrar os dados da
+         * reserva, inclusive sua duração em dias. Em seguida, ler novas datas de entrada e saída, atualizar a reserva, e mostrar novamente
+         * a reserva com os dados atualizados. O programa não deve aceitar dados inválidos para a reserva, conforme as seguintes regras:
+         * 
+         * - Alterações de reserva só podem ocorrer para datas futuras
+         * - A data de saída deve ser maior que a data de entrada.
+         */
+
+        /*
+         * Os tratamentos de erros foram criados dentro da classe Reservas. E uma classe para as exceções também foi criada
+         * herdando a classe ApplicationException, com ela podemos criar nossas exceções expecíficas.
+         */ 
+
+        try
+        {
+            Console.Write("Número do quarto: ");
+            int numeroQ = int.Parse(Console.ReadLine());
+            Console.Write("Check-in data (dia/mês/ano): ");
+            DateTime checkIn = DateTime.Parse(Console.ReadLine());
+            Console.Write("Check-out data (dia/mês/ano): ");
+            DateTime checkOut = DateTime.Parse(Console.ReadLine());
+
+            Reservas objReserva = new Reservas(numeroQ, checkIn, checkOut);
+            Console.WriteLine($"Reserva: {objReserva}");
+
+            Console.WriteLine();
+
+            Console.WriteLine("Entre com a data para atualizar sua reserva:");
+            Console.Write("Check-in data (dia/mês/ano): ");
+            checkIn = DateTime.Parse(Console.ReadLine());
+            Console.Write("Check-out data (dia/mês/ano): ");
+            checkOut = DateTime.Parse(Console.ReadLine());
+            objReserva.AtualizarDatas(checkIn, checkOut);
+            Console.WriteLine($"Reserva: {objReserva}");
+        }
+        catch (DominioException e) //Exceção expecífica pela minha classe, utilizando ApplicationException
+        {
+            Console.WriteLine($"Error: {e.Message}");
+        }
+        catch(FormatException e) //Exceção expecífica pela classe próprio do C#, a SystemException
+        {
+            Console.WriteLine($"Erro no formato de entrada: {e.Message}");
+        }
+        catch (Exception) // Exceção geral
+        {
+            throw;
+        }
 
         #endregion
 
