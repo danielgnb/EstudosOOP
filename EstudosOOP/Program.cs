@@ -6,6 +6,7 @@ using EstudosOOP.Static_Classes;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.IO;
 
 class Program
 {
@@ -700,42 +701,272 @@ class Program
         /*
          * Os tratamentos de erros foram criados dentro da classe Reservas. E uma classe para as exceções também foi criada
          * herdando a classe ApplicationException, com ela podemos criar nossas exceções expecíficas.
-         */ 
+         */
 
-        try
-        {
-            Console.Write("Número do quarto: ");
-            int numeroQ = int.Parse(Console.ReadLine());
-            Console.Write("Check-in data (dia/mês/ano): ");
-            DateTime checkIn = DateTime.Parse(Console.ReadLine());
-            Console.Write("Check-out data (dia/mês/ano): ");
-            DateTime checkOut = DateTime.Parse(Console.ReadLine());
+        //try
+        //{
+        //    Console.Write("Número do quarto: ");
+        //    int numeroQ = int.Parse(Console.ReadLine());
+        //    Console.Write("Check-in data (dia/mês/ano): ");
+        //    DateTime checkIn = DateTime.Parse(Console.ReadLine());
+        //    Console.Write("Check-out data (dia/mês/ano): ");
+        //    DateTime checkOut = DateTime.Parse(Console.ReadLine());
 
-            Reservas objReserva = new Reservas(numeroQ, checkIn, checkOut);
-            Console.WriteLine($"Reserva: {objReserva}");
+        //    Reservas objReserva = new Reservas(numeroQ, checkIn, checkOut);
+        //    Console.WriteLine($"Reserva: {objReserva}");
 
-            Console.WriteLine();
+        //    Console.WriteLine();
 
-            Console.WriteLine("Entre com a data para atualizar sua reserva:");
-            Console.Write("Check-in data (dia/mês/ano): ");
-            checkIn = DateTime.Parse(Console.ReadLine());
-            Console.Write("Check-out data (dia/mês/ano): ");
-            checkOut = DateTime.Parse(Console.ReadLine());
-            objReserva.AtualizarDatas(checkIn, checkOut);
-            Console.WriteLine($"Reserva: {objReserva}");
-        }
-        catch (DominioException e) //Exceção expecífica pela minha classe, utilizando ApplicationException
-        {
-            Console.WriteLine($"Error: {e.Message}");
-        }
-        catch(FormatException e) //Exceção expecífica pela classe próprio do C#, a SystemException
-        {
-            Console.WriteLine($"Erro no formato de entrada: {e.Message}");
-        }
-        catch (Exception) // Exceção geral
-        {
-            throw;
-        }
+        //    Console.WriteLine("Entre com a data para atualizar sua reserva:");
+        //    Console.Write("Check-in data (dia/mês/ano): ");
+        //    checkIn = DateTime.Parse(Console.ReadLine());
+        //    Console.Write("Check-out data (dia/mês/ano): ");
+        //    checkOut = DateTime.Parse(Console.ReadLine());
+        //    objReserva.AtualizarDatas(checkIn, checkOut);
+        //    Console.WriteLine($"Reserva: {objReserva}");
+        //}
+        //catch (DominioException e) //Exceção expecífica pela minha classe, utilizando ApplicationException
+        //{
+        //    Console.WriteLine($"Error: {e.Message}");
+        //}
+        //catch(FormatException e) //Exceção expecífica pela classe próprio do C#, a SystemException
+        //{
+        //    Console.WriteLine($"Erro no formato de entrada: {e.Message}");
+        //}
+        //catch (Exception) // Exceção geral
+        //{
+        //    throw;
+        //}
+
+        #endregion
+
+        #endregion
+        #region ARQUIVOS
+
+        #region File, FileInfo
+        /*
+         * Realiza operações com arquivos (create, copy, delete, move, open, etc.) e ajuda na criação de objetos FileStream.
+         * 
+         * - File: static members (simples, mas realiza verificação de segurança para cada operação)
+         * - FileInfo: instance members
+         */
+
+        //string fileTxt = @"C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum.txt";
+        //string arquivoDestino = @"C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum2.txt";
+
+        //try
+        //{
+        //    FileInfo fileInfo = new FileInfo(fileTxt);
+        //    fileInfo.CopyTo(arquivoDestino);
+        //    string[] linhasArquivo = File.ReadAllLines(fileTxt);
+        //    foreach (string linhas in linhasArquivo)
+        //    {
+        //        Console.WriteLine(linhas);
+        //    }
+        //}
+        //catch (IOException ex)
+        //{
+        //    Console.WriteLine("Um erro ocorreu!");
+        //    Console.WriteLine(ex.Message);
+        //}
+
+        #endregion
+
+        #region FileStream
+        /*
+         * Disponibiliza uma stream associada a um arquivo, permitindo operações de leitura e escrita. 
+         * Suporte a dados binários.
+         * 
+         * -> Instanciação:
+         * - Vários construtores
+         * - File / FileInfo
+         */
+
+        #region StreamReader
+        /*
+         * É uma stream capaz de ler caracteres a partir de uma stream binária (ex: FileStream).
+         * Suporte a dados no formato de texto.
+         * 
+         * -> Instanciação:
+         * - Vários construtores
+         * - File / FileInfo
+         */
+        #endregion
+
+        // Exemplos de como se ler um arquivo com stream's.
+
+        // Exemplo 1 (mais verboso):
+        //string path = @"C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum2.txt";
+        //FileStream fileStream = null;
+        //StreamReader streamReader = null;
+
+        //try
+        //{
+        //    fileStream = new FileStream(path, FileMode.Open);
+        //    streamReader = new StreamReader(fileStream);
+        //    string linha = streamReader.ReadLine();
+        //    Console.WriteLine(linha);
+        //}
+        //catch (IOException ex)
+        //{
+        //    Console.WriteLine(ex.Message);
+        //}
+        //finally
+        //{
+        //    if (streamReader != null) streamReader.Close();
+        //    if (fileStream != null) fileStream.Close();
+        //}
+        //
+
+        // Exemplo 2 (menos verboso):
+
+        //string path = @"C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum2.txt";
+        //StreamReader sr = new StreamReader(path);
+        //try
+        //{
+        //    while (!sr.EndOfStream)
+        //    {
+        //        string linha = sr.ReadLine();
+        //        Console.WriteLine(linha);
+        //    }
+        //}
+        //catch (IOException ex)
+        //{
+        //    Console.WriteLine(ex.Message);
+        //}
+        //finally
+        //{
+        //    if (sr != null) sr.Close();
+        //}
+
+        //
+
+        #endregion
+
+        #region Bloco USING
+        /*
+         * Sintaxe simplificada que garante que os objetos IDisposable serão fechados.
+         * 
+         * Objetos IDisposable NÃO são gerenciados pelo CLR. Eles precisam ser manualmente fechados.
+         * Exemplos: Font, FileStream, StreamReader, StreamWriter.
+         * 
+         */
+
+        //string path = @"C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum2.txt";
+        //try
+        //{
+        //    // Utilizando o using fará com que quando a aplicação terminar de utilizar a classe StreamReader,
+        //    // ela será fechada, sem a necessidade de bloco finally.
+        //    using (StreamReader sr = new StreamReader(path)) 
+        //    {
+        //        while (!sr.EndOfStream)
+        //        {
+        //            string line = sr.ReadLine();
+        //            Console.WriteLine(line);
+        //        }
+        //    }
+        //}
+        //catch (IOException ex)
+        //{
+        //    Console.WriteLine(ex.Message);            
+        //}
+        #endregion
+
+        #region StreamWriter
+
+        /*
+         * É uma stream capaz de escrever caracteres a partir de uma stream binária (ex: FileStream).
+         * Suporte a dados no formato de texto.
+         * 
+         * -> Instanciação:
+         * - Vários construtores
+         * - FIle / FileInfo
+         * -- CreateText(path)
+         * -- AppendText(String)
+         */
+
+        //string arquivoOrigem = @"C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum.txt";
+        //string arqDestino = @"C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum3.txt";
+
+        //try
+        //{
+        //    string[] linhas = File.ReadAllLines(arquivoOrigem);
+        //    using (StreamWriter sw = File.AppendText(arqDestino))
+        //    {
+        //        foreach (string linha in linhas)
+        //        {
+        //            sw.WriteLine(linha.ToUpper());
+        //        }
+        //    }
+        //}
+        //catch (IOException ex)
+        //{
+        //    Console.WriteLine(ex.Message);            
+        //}
+
+        #endregion
+
+        #region Directory, DirectoryInfo
+
+        /*
+         * Operações com pastas (create, enumerate, get files, etc.).
+         * 
+         * -> Directory
+         * - membros estáticos (simples, mas elas fazem uma checagem de segurança antes de efetuar cada operação)
+         * 
+         * -> DirectoryInfo
+         * - instanciação de membros
+         */
+
+
+        //string path = @"C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio";
+        //try
+        //{
+        //    // Listar as pastas a partir de uma pasta informada:
+        //    IEnumerable<string> pasta = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories);
+        //    Console.WriteLine("PASTAS:");
+        //    foreach (string pastaString in pasta)
+        //    {
+        //        Console.WriteLine(pastaString);
+        //    }
+
+        //    Console.WriteLine();
+
+        //    // Listar arquivos a partir de uma pasta informada:
+        //    IEnumerable<string> arquivos = Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories);
+        //    Console.WriteLine("ARQUIVOS:");
+        //    foreach (string arquivo in arquivos)
+        //    {
+        //        Console.WriteLine(arquivo);
+        //    }
+
+        //    // Criar uma pasta
+        //    Directory.CreateDirectory(path + @"\novapasta");
+
+        //}
+        //catch (IOException ex)
+        //{
+        //    Console.WriteLine(ex.Message);
+        //}
+
+        #endregion
+
+        #region Path
+
+        /*
+         * Realiza operações com strings que contém informações de arquivos ou pastas.
+         */
+
+        //string path = @"C:\Users\danie\OneDrive\Área de Trabalho\DANIEL\PROGRAMAÇÃO\C#\EstudosOOP\EstudosOOP\Apoio\Anotacoes\lorem-ipsum.txt";
+
+        //Console.WriteLine($"GetDirectoryName: {Path.GetDirectoryName(path)}"); // Obtém apenas o nome da pasta, sem o arquivo.
+        //Console.WriteLine($"DirectorySeparatorChar: {Path.DirectorySeparatorChar}"); // Obtém o caractere de separação.
+        //Console.WriteLine($"PathSeparator: {Path.PathSeparator}"); // Obtém o caractere que separa entre path's diferentes.
+        //Console.WriteLine($"GetFileName: {Path.GetFileName(path)}"); // Obtém o nome do arquivo passado.
+        //Console.WriteLine($"GetFileNameWithoutExtension: {Path.GetFileNameWithoutExtension(path)}"); // Obtém o nome do arquivo passado sem sua extensão.
+        //Console.WriteLine($"GetExtension: {Path.GetExtension(path)}"); // Obtém apenas a extensão do arquivo passado.
+        //Console.WriteLine($"GetFullPath: {Path.GetFullPath(path)}"); // Obtém todo o caminho do arquivo.
+        //Console.WriteLine($"GetTempPath: {Path.GetTempPath()}"); // Obtém a pasta temporária do sistema
 
         #endregion
 
