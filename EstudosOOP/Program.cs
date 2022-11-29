@@ -2,6 +2,7 @@
 using EstudosOOP.Entidades;
 using EstudosOOP.Entidades.Enums;
 using EstudosOOP.Entidades.Exceções;
+using EstudosOOP.Servicos;
 using EstudosOOP.Static_Classes;
 using System.Collections.Generic;
 using System.Data;
@@ -969,6 +970,64 @@ class Program
         //Console.WriteLine($"GetTempPath: {Path.GetTempPath()}"); // Obtém a pasta temporária do sistema
 
         #endregion
+
+        #endregion
+        #region INTERFACES
+
+        /*
+         * Interface é um tipo que define um conjunto de operações que uma classe (ou struct) deve implementar.
+         * 
+         * A interface estabelece um contrato que a classe (ou struct) deve cumprir.
+         * 
+         * -> Pra quê interfaces?
+         * - Para criar sistemas com baixo acoplamento e flexíveis. 
+         */
+
+        //Console.WriteLine("Entre com os dados do aluguel");
+        //Console.Write("Modelo do carro: ");
+        //string modeloCarro = Console.ReadLine();
+        //Console.Write("Entrada (dd/MM/yyyy hh:mm): ");
+        //DateTime dataEntrada = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+        //Console.Write("Saída (dd/MM/yyyy hh:mm): ");
+        //DateTime dataSaida = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+
+        //Console.Write("Preço por hora: ");
+        //double hora = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        //Console.Write("Preço por dia: ");
+        //double dia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        //ITaxaServico taxa;
+
+        //AluguelCarros aluguelCarros = new(dataEntrada, dataSaida, new Veiculo(modeloCarro));
+        //ServicoAluguel servicoAluguel = new ServicoAluguel(hora, dia, new ServicoTributarioBrasil());
+        //// A classe concreta ServicoTributarioBrasil é um tipo de ITaxaServico por meio do contrato que foi feito.
+
+        //servicoAluguel.ProcessarFatura(aluguelCarros);
+
+        //Console.WriteLine("FATURA: ");
+        //Console.WriteLine(aluguelCarros.Fatura);
+        //Console.ReadKey();
+
+        #endregion
+        #region INJEÇÃO DE DEPENDÊNCIA e INVERSÃO DE CONTROLE
+
+        /*
+         * -> Inversão de Controle: Padrão de desenvolvimento que consiste em retirar da classe
+         * a responsabilidade de instanciar suas dependências.
+         * 
+         * -> Injeção de dependência: É uma forma de realizar a inversão de controle: um componente externo instancia a dependência, que é então
+         * injetada no objeto "pai". Pode ser implementada de várias formas: 
+         * - Construtor
+         * - Objeto de instanciação (builder/factory)
+         * - Container/framework
+         * 
+         * No exemplo do tópico de interface foi feito uma injeção de dependência por meio de construtores.
+         * A classe ServicoTributarioBrasil foi injetada na interface ITaxaServico pelo construtor da classe ServicoAluguel, 
+         * fazendo com que não seja necessário mudar o código caso uma nova taxa de serviço for usada.
+         * 
+         */
+
+        #endregion
+        #region HERANÇA x INTERFACE
 
         #endregion
     }
