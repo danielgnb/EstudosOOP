@@ -1,4 +1,5 @@
 ﻿using EstudosOOP;
+using EstudosOOP.Classes;
 using EstudosOOP.Entidades;
 using EstudosOOP.Entidades.Enums;
 using EstudosOOP.Entidades.Exceções;
@@ -772,7 +773,6 @@ class Program
         //}
 
         #endregion
-
         #region FileStream
         /*
          * Disponibiliza uma stream associada a um arquivo, permitindo operações de leitura e escrita. 
@@ -906,7 +906,6 @@ class Program
         //}
 
         #endregion
-
         #region Directory, DirectoryInfo
 
         /*
@@ -951,7 +950,6 @@ class Program
         //}
 
         #endregion
-
         #region Path
 
         /*
@@ -972,7 +970,7 @@ class Program
         #endregion
 
         #endregion
-        #region INTERFACES
+        #region INTERFACES com DI (Injeção de Dependência)
 
         /*
          * Interface é um tipo que define um conjunto de operações que uma classe (ou struct) deve implementar.
@@ -1020,7 +1018,7 @@ class Program
          * - Objeto de instanciação (builder/factory)
          * - Container/framework
          * 
-         * No exemplo do tópico de interface foi feito uma injeção de dependência por meio de construtores.
+         * No exemplo do tópico de INTERFACES foi feito uma injeção de dependência por meio de construtores.
          * A classe ServicoTributarioBrasil foi injetada na interface ITaxaServico pelo construtor da classe ServicoAluguel, 
          * fazendo com que não seja necessário mudar o código caso uma nova taxa de serviço for usada.
          * 
@@ -1030,5 +1028,142 @@ class Program
         #region HERANÇA x INTERFACE
 
         #endregion
+        #region GENERICS
+
+        /*
+         * Generics permitem que classes, interfaces e métodos possam ser parametrizados por tipo. Seus benefícios são:
+         * - Reuso
+         * - Type safety
+         * - Perfomance
+         * 
+         * Uso comum: coleções
+         * 
+         * Exemplos: 
+         * List<string> list = new List<string>();
+         * list.Add("Maria");
+         * string name = list[0];
+         */
+
+        //ServicoImpressao<int> servicoImpressao = new ServicoImpressao<int>();
+
+        //Console.Write("Quantos valores você vai digitar? ");
+        //int n = int.Parse(Console.ReadLine());
+
+        //for (int i = 0; i < n; i++)
+        //{
+        //    int x = int.Parse(Console.ReadLine());
+        //    servicoImpressao.AdicionarValor(x);
+        //}
+
+        //servicoImpressao.Imprimir();
+        //Console.WriteLine($"Primeiro: {servicoImpressao.Primeiro()}");        
+
+        #endregion
+        #region GetHashCode E EQUALS
+
+        /*
+         * São operações da classe Object utilizadas para comparar se um objeto é igual ao outro.
+         * - Equals: lento, resposta 100%
+         * - GetHashCode: rápido, porém resposta positiva não é 100%
+         * 
+         * Os tipos pré-definidos já possuem implementação para essas operações. Classes e structs personalizados precisam sobrepô-las.          
+         */
+
+        /* -> Equals
+         * Método que compara se o objeto é igual a outro, retornando true ou false.
+         *
+         * Exemplo:
+         * string a = "Maria";
+         * string a1 = "Maria";
+         * string b = "Alex";
+         * Console.WriteLine(a.Equals(b)); //false
+         * Console.WriteLine(a.Equals(a1)); //true
+         */
+
+        /*
+         * -> GetHashCode
+         * Método que retorna um número inteiro representando um código gerado a partir das informações do objeto.
+         * 
+         * Exemplo:
+         */
+        //string c = "Maria";
+        //string c1 = "Maria";
+        //string d = "Alex";
+        //Console.WriteLine(c.GetHashCode()); // ~ número inteiro ~
+        //Console.WriteLine(d.GetHashCode()); // ~ número inteiro ~
+        //Console.WriteLine(c1.GetHashCode()); // ~ número inteiro ~
+
+        /*
+         * -> Regra de ouro do GetHashCode
+         * Se o código de dois objetos forem diferentes, então os dois objetos são diferentes
+         * Se o código de dois objetos forem iguais, muito provavelmente os objetos são iguais (pode haver colisão)
+         */
+
+        //Cliente a = new Cliente { Nome = "Daniel", Email = "daniel.nevesb@hotmail.com" };
+        //Cliente b = new Cliente { Nome = "Fulano", Email = "daniel.nevesb@hotmail.com" };
+
+        //Console.WriteLine(a.Equals(b)); // True -> Porque os objetos são iguals no tipo de contéudo
+        //Console.WriteLine(a == b); // False -> Porque os objetos são diferentes no tipo de referência
+        //Console.WriteLine(a.GetHashCode());
+        //Console.WriteLine(b.GetHashCode());
+
+        #endregion
+        #region Conjuntos HashSet<T> e SortedSet<T>
+
+        /*
+         * Representam um conjunto de elementos (similar ao da Álgebra)
+         * - Não admitem repetições
+         * - Elementos não possuem posições
+         * - Acesso, inserçãoe e remoção de elementos são rápidos
+         * - Oferece operações eficientes de conjunto: inserção, união, diferença.
+         */
+
+        /*
+         * -> HashSet
+         * - Armazenamento em tabela hash
+         * - Extremamente rápido: inserção, remoção e busca O(1)
+         * - A ordem dos elementos não é garantida
+         * 
+         * -> SortedSet
+         * - Armazenamento em árvore
+         * - Rápido: inserção, remoção e busca O(log(n))
+         * - Os elementos são armazenados ordenadamente conforme implementação IComparer<T>
+         */
+
+        //SortedSet<int> a = new SortedSet<int>() {0,2,4,5,6,8,10 };
+        //SortedSet<int> b = new SortedSet<int>() {5,6,7,8,9,10 };
+
+        //// Método União
+        //SortedSet<int> c = new SortedSet<int>(a);
+        //c.UnionWith(b);
+        //ImprimirColecao(c);
+
+        //// Método Intersecção
+        //SortedSet<int> d = new SortedSet<int>(a);
+        //d.IntersectWith(b);
+        //ImprimirColecao(d);
+
+        //// Método Diferente
+        //SortedSet<int> e = new SortedSet<int>(a);
+        //e.ExceptWith(b);
+        //ImprimirColecao(e);
+
+        #endregion
+    }
+
+    static void ImprimirColecao<T> (IEnumerable<T> colecao)
+    {
+        try
+        {
+            foreach (T item in colecao)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
     }
 }
