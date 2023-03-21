@@ -9,10 +9,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.IO;
-
+using EstudosOOP.Extensoes;
 class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         #region INSTANCIANDO CLASSES              
 
@@ -1149,15 +1149,76 @@ class Program
         //ImprimirColecao(e);
 
         #endregion
-    }
+        #region Dictionary<TKey, TValue> e SortedDictionary
 
-    static void ImprimirColecao<T> (IEnumerable<T> colecao)
+        /*
+         * O Dictionary é uma coleção de pares chave/valor
+         * - Não admite repetições do objeto chave
+         * - Os elementos são indexados pelo objeto chave (não possuem posição)
+         * - Acesso, inserção e remoção de elementos são rápidos
+         * 
+         * Uso comum: cookies, local storage, qualquer modelo chave-valor
+         */
+
+        /*
+         * Dictionary x SortedDictionary
+         * 
+         * -> Dictionary
+         * - Armazenamento em tabela hash
+         * - Extramamente rápido: inserção, remoção e busca O(1)
+         * - A ordem dos elementos não é garantida
+         * 
+         * dictionary[key] -> acessa o elemento pela chave informada
+         * 
+         * -> SortedDictionary
+         * - Armazenamento em árvore
+         * - Rápido: inserção, remoção e busca O(log(n))
+         * - Os elementos são armazenados ordenadamente conforme implementação do IComparer<T>
+         */
+
+        /*
+         * -> Principais métodos da coleção
+         * 
+         * - Add(key, value) - adiciona o elemento (exceção em caso de repetição)
+         * - Clear() - esvazia a coleção
+         * - Count - quantidade de elementos
+         * - ContainsKey(key) - verifica se a dada chave existe
+         * - ContainsValue(value) - verifica se o dado valor existe
+         * - RemoveKey(key) - remove um elemento pela chave
+         */
+
+        #endregion
+        #region Extensions Methods
+
+        /*
+         * Os Extensions Methods são métodos que estendem a funcionalidade de um tipo,
+         * sem precisar alterar o código fonte do mesmo e nem herdar.
+         * 
+         * Como fazer um?
+         * -> Criar uma classes estática
+         * -> Na classe, criar um método estático
+         * -> O primeiro parâmetro do método deverá ter o prefixo this, seguido da tipagem e sua declaração.
+         * Esta será uma referência para o próprio objeto.
+         */
+
+        //Exemplo 1:
+        //DateTime dt = new DateTime(2023, 3, 20, 7, 30, 45);
+        //Console.WriteLine(dt.ElapsedTime());        
+
+        //Exemplo 2:
+        //String s1 = "Hello, World!";
+        //Console.WriteLine(s1.Cut(10));
+        //Console.ReadKey();
+        #endregion
+    }
+    static async Task ImprimirColecao<T> (IEnumerable<T> colecao)
     {
         try
         {
             foreach (T item in colecao)
             {
                 Console.Write(item + " ");
+                await Task.Delay(1000);
             }
             Console.WriteLine();
         }
