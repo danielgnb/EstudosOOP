@@ -4,14 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 using System.Threading.Tasks;
+using EstudosOOP.Classes;
 
 namespace EstudosOOP
 {
     internal class Produto
     {
-        private string Nome { get; set; }
-        private double Preco { get; set; }
-        private int Quantidade { get; set; }
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public double Preco { get; set; }
+        public int Quantidade { get; set; }
+        public Categoria Categoria { get; set; }
 
         public Produto(string Nome, double Preco, int Quantidade)
         {
@@ -20,9 +23,15 @@ namespace EstudosOOP
             this.Quantidade = Quantidade;
         }
 
-        public Produto()
+        public Produto(string Nome, double Preco, int Quantidade, Categoria Categoria)
         {
+            this.Nome = Nome;
+            this.Preco = Preco;
+            this.Quantidade = Quantidade;
+            this.Categoria = Categoria;
         }
+
+        public Produto() { }
 
         public double ValorTotalEmEstoque()
         {
@@ -33,7 +42,8 @@ namespace EstudosOOP
         public override string ToString()
         {
             return $"{Nome}, R${Preco.ToString("F2", CultureInfo.InvariantCulture)}," +
-                $" {Quantidade} unidades," + $" Total: R${ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture)}";
+                $" {Quantidade} unidades," + $" Total: R${ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture)}" +
+                $" Tier: {Categoria.Tier}";
         }
 
         public void AdicionarProdutos(int quantity)

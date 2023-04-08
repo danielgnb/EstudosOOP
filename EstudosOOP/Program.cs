@@ -10,6 +10,8 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using EstudosOOP.Extensoes;
+using System.Linq;
+
 class Program
 {
     static async Task Main(string[] args)
@@ -1210,14 +1212,130 @@ class Program
         //Console.WriteLine(s1.Cut(10));
         //Console.ReadKey();
         #endregion
+        #region Delegates
+
+        /*
+         * Um delegate é um elemento da linguagem C# que permite que você faça referência a um método.
+         * 
+         * 
+         * 
+         */
+
+        #endregion
+        #region LINQ
+
+        //Categoria c1 = new Categoria() { Id = 1, Nome = "Ferramentas", Tier = 2 };
+        //Categoria c2 = new Categoria() { Id = 2, Nome = "Computadores", Tier = 1 };
+        //Categoria c3 = new Categoria() { Id = 3, Nome = "Eletrônicos", Tier = 1 };
+
+        //List<Produto> produtos = new List<Produto>() {
+        //    new Produto(){Id=1,Nome="Computador",Preco = 1100.0, Categoria = c2 },
+        //    new Produto(){Id=2,Nome="Martelo",Preco = 90.0, Categoria = c1 },
+        //    new Produto(){Id=3,Nome="TV",Preco=1700.0,Categoria = c3},
+        //    new Produto(){Id=4,Nome="Notebook",Preco=1300.0,Categoria = c2},
+        //    new Produto(){Id=5,Nome="Serra",Preco=80.0,Categoria = c1},
+        //    new Produto(){Id=6,Nome="Tablet",Preco=700.0,Categoria = c2},
+        //    new Produto(){Id=7,Nome="Camera",Preco=700.0,Categoria = c3},
+        //    new Produto(){Id=8,Nome="Impressora",Preco=350.0,Categoria = c3},
+        //    new Produto(){Id=9,Nome="MacBook",Preco=1800.0,Categoria = c2},
+        //    new Produto(){Id=10,Nome="Som",Preco=700.0,Categoria = c3},
+        //    new Produto(){Id=11,Nome="Ferramenta de Nível",Preco=70.0,Categoria = c1},
+        //};
+
+        //Console.WriteLine("-----------------------------");
+        //Console.WriteLine("TIER 1 E PREÇO MENOR QUE 900");
+        //Console.WriteLine("-----------------------------");
+        ////var R1 = produtos.Where(x => x.Categoria.Tier == 1 && x.Preco <= 900).Select(x => x);
+        //var R1 = from p in produtos where p.Categoria.Tier == 1 && p.Preco <= 900 select p;
+        //await ImprimirColecao(R1);
+
+        //Console.WriteLine("-----------------------------");
+        //Console.WriteLine("PRODUTOS DA CATEGORIA FERRAMENTAS");
+        //Console.WriteLine("-----------------------------");
+        ////var R2 = produtos.Where(x => x.Categoria.Id == 1).Select(x => x.Nome);
+        //var R2 = from p in produtos where p.Categoria.Tier == 1 select p.Nome;
+        //await ImprimirColecao(R2);
+
+        //Console.WriteLine("-----------------------------");
+        //Console.WriteLine("PRODUTOS COMEÇADOS COM A LETRA C E OBJETOS ANÔNIMOS");
+        //Console.WriteLine("-----------------------------");
+        ////var R3 = produtos
+        ////.Where(x => x.Nome[0] == 'C') //Uma string é um array de char
+        ////.Select(x => new {x.Nome, x.Preco, CategoriaNome = x.Categoria.Nome });
+        //var R3 = from p in produtos where p.Nome[0] == 'C' select new { p.Nome, p.Preco, CategoriaNome = p.Categoria.Nome };
+        //await ImprimirColecao(R3);
+
+        //Console.WriteLine("-----------------------------");
+        //Console.WriteLine("PRODUTOS ORDENADOS POR PREÇO E NOME COM OBJETOS ANÔNIMOS");
+        //Console.WriteLine("-----------------------------");
+        ////var R4 = produtos
+        ////.Where(x => x.Categoria.Tier == 1)
+        ////.OrderBy(x => x.Preco).ThenBy(x => x.Nome)
+        ////.Select(x => new { x.Nome, x.Preco, CategoriaNome = x.Categoria.Nome });
+        //var R4 = from p in produtos where p.Categoria.Tier == 1 orderby p.Nome orderby p.Preco select p;
+        //await ImprimirColecao(R4);
+
+        ////var R5 = produtos.FirstOrDefault(); //O método FirstOrDefault traz o primeiro item ou caso não exista retorna nulo
+        //var R5 = (from p in produtos select p).FirstOrDefault();
+        //Console.WriteLine($"Primeiro produto: {R5}");
+
+        //var R6 = produtos.Where(x => x.Id == 3).SingleOrDefault(); 
+        ////Esse método retorna a tipagem do objeto utilizado e não um Enumerable.
+        ////Ele pode ser utilizado apenas se o resultado do Where for único, se retornar mais de um uma exceção será lançada
+        //Console.WriteLine(R6);
+
+        //// Ferramentas LINQ de agregação
+        //Console.WriteLine("-----------------------------");
+        //Console.WriteLine("FERRAMENTAS LINQ DE AGREGAÇÃO (Operações Matemáticas)");
+        //Console.WriteLine("-----------------------------");
+        //var R7 = produtos.Max(x => x.Preco);
+        //Console.WriteLine($"Maior preço: {R7}");
+        //var R8 = produtos.Min(x => x.Preco);
+        //Console.WriteLine($"Menor preço: {R8}");
+        //var R9 = produtos.Where(x => x.Categoria.Id == 1).Sum(p => p.Preco);
+        //Console.WriteLine($"Soma dos preços dos produtos de categoria 1: {R9}");
+        //var R10 = produtos.Where(x => x.Categoria.Id == 1).Average(p => p.Preco);
+        //Console.WriteLine($"Média dos preços dos produtos de categoria 1: {R10}");
+        ////O próximo exemplo mostrará como podemos tratar caso o retorno do Where seja vazio
+        ////Obs: Categoria de ID 5 não existe
+        //var R11 = produtos.Where(x => x.Categoria.Id == 5).Select(x => x.Preco).DefaultIfEmpty(0.0).Average();
+        //var R12 = produtos.Where(x => x.Categoria.Id == 5).Select(x => x.Preco).DefaultIfEmpty(0.0).Sum();
+        //Console.WriteLine($"Soma dos preços dos produtos de categoria 5: {R11}");
+        //Console.WriteLine($"Média dos preços dos produtos de categoria 5: {R12}");
+
+        //Console.WriteLine();
+        //Console.WriteLine("-> AGGREGATE");
+        ////Com o Aggregate podemos montar nossa operação matemática
+        //var R13 = produtos.Where(p => p.Categoria.Id == 1).Select(x => x.Preco).Aggregate((x, y) => x + y);
+        //Console.WriteLine($"Soma dos preços dos produtos de categoria 1 com Aggregate: {R13}");
+        //var R14 = produtos.Where(p => p.Categoria.Id == 1).Select(x => x.Preco).Aggregate(0.0, (x, y) => x + y);
+        //Console.WriteLine($"Soma dos preços dos produtos de categoria 5 com Aggregate: {R14}");
+
+        //Console.WriteLine();
+        //Console.WriteLine("-> GROUPBY");
+        ////var R15 = produtos.GroupBy(p => p.Categoria);
+        //var R15 = from p in produtos group p by p.Categoria;
+        //foreach (var grupo in R15)
+        //{
+        //    Console.WriteLine($"Categoria: {grupo.Key.Nome}");
+        //    foreach (Produto p in grupo)
+        //    {
+        //        Console.WriteLine(p);
+        //    }
+        //    Console.WriteLine();
+        //}
+
+        //Console.ReadKey();
+
+        #endregion
     }
-    static async Task ImprimirColecao<T> (IEnumerable<T> colecao)
+    static async Task ImprimirColecao<T>(IEnumerable<T> colecao)
     {
         try
         {
             foreach (T item in colecao)
             {
-                Console.Write(item + " ");
+                Console.WriteLine(item + " ");
                 await Task.Delay(1000);
             }
             Console.WriteLine();
