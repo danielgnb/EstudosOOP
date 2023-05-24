@@ -1327,6 +1327,11 @@ class Program
         //Console.ReadKey();
 
         #endregion
+
+        /*
+         * aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+         * 
+         */
     }
     static async Task ImprimirColecao<T>(IEnumerable<T> colecao)
     {
