@@ -11,7 +11,6 @@ using System.Globalization;
 using System.IO;
 using EstudosOOP.Extensoes;
 using System.Linq;
-
 class Program
 {
     static async Task Main(string[] args)
